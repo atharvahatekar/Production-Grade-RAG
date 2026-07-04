@@ -20,8 +20,11 @@ class Settings:
 
     # --- LLM GATEWAY (PORTKEY) ---
     PORTKEY_API_KEY = os.getenv("PORTKEY_API_KEY")
-    GROQ_SLUG =  "rag"     # primary: @rag/llama-3.3-70b-versatile
-    GROQ_SLUG_2 = "brag"  # fallback: @brag/llama-3.1-8b-instant
+    # Saved Portkey configs use a ``pc-...`` slug. This project intentionally
+    # does not send inline configs because production workspaces can block them.
+    PORTKEY_CONFIG_ID = os.getenv("PORTKEY_CONFIG_ID", "").strip()
+    GROQ_SLUG =  "rag1"     # primary: @rag/llama-3.3-70b-versatile
+    GROQ_SLUG_2 = "rag2"  # fallback: @brag/llama-3.1-8b-instant
 
     
     # --- OBSERVABILITY ---
